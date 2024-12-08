@@ -1,0 +1,160 @@
+<section class="bg-gray-5">
+  <div
+    class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0"
+  >
+    <div
+      class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0"
+    >
+      <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+        <h1
+          class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl"
+        >
+          Create an account
+        </h1>
+        <form
+          class="space-y-4 md:space-y-6"
+          action="#"
+          [formGroup]="signupForm"
+        >
+          <!-- Username Field -->
+          <div>
+            <label
+              for="username"
+              class="block mb-2 text-sm font-medium text-gray-900"
+              >Username</label
+            >
+            <input
+              type="text"
+              formControlName="username"
+              id="username"
+              class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+              placeholder="Your username"
+              required=""
+            />
+            <small
+              *ngIf="
+                signupForm.controls['username'].dirty &&
+                signupForm.controls['username'].hasError('required')
+              "
+              class="bg-red-100 text-red-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded"
+            >
+              *Username is required
+            </small>
+          </div>
+
+          <!-- Email Field -->
+          <div>
+            <label
+              for="email"
+              class="block mb-2 text-sm font-medium text-gray-900"
+              >Your email</label
+            >
+            <input
+              type="email"
+              formControlName="email"
+              id="email"
+              class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+              placeholder="name@company.com"
+              required=""
+            />
+            <small
+              *ngIf="
+                signupForm.controls['email'].dirty &&
+                signupForm.controls['email'].hasError('required')
+              "
+              class="bg-red-100 text-red-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded"
+            >
+              *Email is required
+            </small>
+          </div>
+
+          <!-- Password Field -->
+          <div>
+            <label
+              for="password"
+              class="block mb-2 text-sm font-medium text-gray-900"
+              >Password</label
+            >
+            <div class="relative">
+              <input
+                [type]="typePassword"
+                formControlName="password"
+                id="password"
+                class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 pr-10"
+                placeholder="••••••••"
+                required=""
+              />
+              <span
+                (click)="toggleShowPassword()"
+                class="absolute inset-y-0 right-2 flex items-center cursor-pointer text-gray-500"
+              >
+                <i class="fa {{ iconPassword }}"></i>
+              </span>
+            </div>
+            <small
+              *ngIf="
+                signupForm.controls['password'].dirty &&
+                signupForm.controls['password'].hasError('required')
+              "
+              class="bg-red-100 text-red-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded"
+            >
+              *Password is required
+            </small>
+          </div>
+
+          <!-- Confirm Password Field -->
+          <div>
+            <label
+              for="confirmPassword"
+              class="block mb-2 text-sm font-medium text-gray-900"
+              >Confirm Password</label
+            >
+            <div class="relative">
+              <input
+                autocomplete=""
+                [type]="typeConfirmPassword"
+                formControlName="confirmPassword"
+                id="confirmPassword"
+                class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 pr-10"
+                placeholder="••••••••"
+                required=""
+              />
+              <span
+                (click)="toggleShowConfirmPassword()"
+                class="absolute inset-y-0 right-2 flex items-center cursor-pointer text-gray-500"
+              >
+                <i class="fa {{ iconConfirmPassword }}"></i>
+              </span>
+            </div>
+            <small
+              *ngIf="
+                signupForm.controls['confirmPassword'].dirty &&
+                signupForm.controls['confirmPassword'].hasError('required')
+              "
+              class="bg-red-100 text-red-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded"
+            >
+              *Confirmation is required
+            </small>
+          </div>
+
+          <!-- Submit Button -->
+          <button
+            (click)="onSignUp()"
+            type="submit"
+            class="w-full text-white bg-black hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+          >
+            Sign up
+          </button>
+          <p class="text-sm font-light text-gray-500">
+            Already have an account?
+            <a
+              href="/login"
+              class="font-medium text-primary-600 hover:underline"
+              >Sign in</a
+            >
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
