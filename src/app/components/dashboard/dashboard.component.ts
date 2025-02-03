@@ -41,6 +41,6 @@ export class DashboardComponent implements OnInit {
   }
   logout() {
     this.auth.logout();
-    Toast.showToast('Come back soon !', 'success');
+    Toast.showToast('Come back soon !!', 'success');
   }
 }
